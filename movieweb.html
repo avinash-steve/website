@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Mood Matcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f06, #3cf);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ffd700;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      resize: vertical;
+      min-height: 100px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      font-size: 1.2rem;
+      color: #ffeb3b;
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎬 Mood Movie Recommender</h1>
+  <form id="moodForm">
+    <textarea id="moodInput" placeholder="Describe how you feel today..."></textarea>
+    <button type="submit">Get Recommendation</button>
+  </form>
+  <div class="result" id="resultBox">
+    <!-- Movie recommendation will appear here -->
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('moodForm');
+  const resultBox = document.getElementById('resultBox');
+  const moodInput = document.getElementById('moodInput');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Simulate a recommendation for now
+    const userMood = moodInput.value.trim().toLowerCase();
+
+    if (!userMood) {
+      resultBox.style.display = 'block';
+      resultBox.textContent = "Please enter your mood!";
+      return;
+    }
+
+    // Replace this part with actual backend call
+    resultBox.style.display = 'block';
+    resultBox.innerHTML = `<strong>Based on your mood, we recommend:</strong><br>🎥 <em>"The Pursuit of Happyness"</em>`;
+  });
+</script>
+
+</body>
+</html>
